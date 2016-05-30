@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# Copyright (c) cwaldbieser
+# Copyright (c) Juptyer Development Team.
 # Copyright (c) Magnus Hagdorn, University of Edinburgh
 # Distributed under the terms of the Modified BSD License.
 
 #-----------------------------------------------------------------------------
 # Minimal Python version sanity check (from IPython/Jupyterhub)
 #-----------------------------------------------------------------------------
+
 from __future__ import print_function
 
 import os
@@ -40,12 +41,12 @@ setup_args = dict(
     name                = 'remote_user',
     packages            = ['remote_user'],
     version             = version_ns['__version__'],
-    description         = """RemoteUserAuthenticator: Authenticate to Jupyterhub using an authenticating proxy that can set the REMOTE_USER header.""",
+    description         = """REMOTE_USER Authenticator: An Authenticator for Jupyterhub to read user information from HTTP request headers, as when running behind an authenticating proxy.""",
     long_description    = "",
-    author              = "GITs",
-    author_email        = "gits@geos.ed.ac.uk",
-    url                 = "https://github.com/mhagdorn/jhub_remote_user_authenticator/",
-    license             = "GPL",
+    author              = "Carl (https://github.com/cwaldbieser)",
+    author_email        = "",
+    url                 = "http://jupyter.org",
+    license             = "BSD",
     platforms           = "Linux, Mac OS X",
     keywords            = ['Interactive', 'Interpreter', 'Shell', 'Web'],
     classifiers         = [
