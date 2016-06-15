@@ -1,5 +1,5 @@
 
-import os
+import os,os.path
 from jupyterhub.handlers import BaseHandler
 from jupyterhub.auth import Authenticator
 from jupyterhub.utils import url_path_join
@@ -15,6 +15,8 @@ class RemoteUserLoginHandler(BaseHandler):
         if remote_user == "":
             raise web.HTTPError(401)
         else:
+            if not os.path.exists('/home/'+remote_user):
+                raise web.HTTPError(reason="directory does not exist, to gain access, please contact ithelp@geos.ed.ac.uk",status_code=403)
             user = self.user_from_username(remote_user)
             self.set_login_cookie(user)
             self.redirect(url_path_join(self.hub.server.base_url, 'home'))
