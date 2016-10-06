@@ -27,7 +27,8 @@ class RemoteUserLoginHandler(BaseHandler):
         else:
             remote_user = self.email_to_user(username)
             if not os.path.exists('/home/'+remote_user):
-                raise web.HTTPError(reason="directory does not exist, to gain access, please contact ithelp@geos.ed.ac.uk",status_code=403)
+                err_message = "directory {} does not exist".format(remote_user)
+                raise web.HTTPError(reason=err_message,status_code=403)
             user = self.user_from_username(remote_user)
             self.set_login_cookie(user)
             self.redirect(url_path_join(self.hub.server.base_url, 'home'))
