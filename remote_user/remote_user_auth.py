@@ -25,7 +25,7 @@ class RemoteUserLoginHandler(BaseHandler):
         if remote_user == "":
             raise web.HTTPError(401)
         else:
-            remote_user = self.email_to_user(username)
+            remote_user = self.email_to_user(remote_user)
             if not os.path.exists('/home/'+remote_user):
                 err_message = "directory {} does not exist".format(remote_user)
                 raise web.HTTPError(reason=err_message,status_code=403)
