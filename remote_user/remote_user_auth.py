@@ -15,7 +15,7 @@ class RemoteUserLoginHandler(BaseHandler):
     @staticmethod
     def email_to_user(username):
         if _EMAIL_RE.match(username):
-            return re.sub(r'^[\w]','_',username)
+            return re.sub(r'[^\w]','_',username)
         else:
             return username
     
